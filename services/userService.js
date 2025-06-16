@@ -115,6 +115,11 @@ const passwordChange = async (userId, newPassword, confirmPassword) => {
   return user;
 };
 
+const profileImageDelete = async (userId) => {
+  const user = await userRepository.profileImageDelete(userId);
+  return user;
+};
+
 export default {
   createUser,
   deleteUser,
@@ -129,4 +134,5 @@ export default {
   checkEmail,
   resetPassword,
   passwordChange,
+  profileImageDelete,
 };

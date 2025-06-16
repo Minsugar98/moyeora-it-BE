@@ -1083,4 +1083,54 @@ router.patch(
   userController.passwordChange
 );
 
+/**
+ * @swagger
+ * /api/v1/user/profile-image-delete:
+ *   delete:
+ *     tags:
+ *       - User
+ *     summary: 프로필 이미지 삭제
+ *     description: 사용자의 프로필 이미지를 삭제합니다.
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       '200':
+ *         description: 프로필 이미지 삭제 성공
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: object
+ *                   properties:
+ *                     success:
+ *                       type: boolean
+ *                       example: true
+ *       '500':
+ *         description: 서버 에러
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: object
+ *                   properties:
+ *                     success:
+ *                       type: boolean
+ *                       example: false
+ *                     code:
+ *                       type: integer
+ *                       example: 500
+ *                     message:
+ *                       type: string
+ *                       example: "프로필 이미지 삭제 중 오류가 발생했습니다."
+ */
+router.delete(
+  '/profile-image-delete',
+  jwtToken.accessVerifyToken,
+  userController.profileImageDelete
+);
+
 export default router;
