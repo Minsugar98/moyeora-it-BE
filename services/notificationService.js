@@ -39,10 +39,17 @@ const getNotificationCount = async (userId) => {
   return notificationCount;
 };
 
-const createNotification = async (targetUserId, message) => {
+const createNotification = async (
+  targetUserId,
+  message,
+  notificationType,
+  url
+) => {
   const notification = await notificationRepository.createNotification(
     targetUserId,
-    message
+    message,
+    notificationType,
+    url
   );
   return notification;
 };

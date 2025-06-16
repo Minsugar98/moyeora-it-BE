@@ -64,11 +64,18 @@ const getNotificationCount = async (userId) => {
   return { unreadCount: notificationCount };
 };
 
-const createNotification = async (targetUserId, message) => {
+const createNotification = async (
+  targetUserId,
+  message,
+  notificationType,
+  url
+) => {
   const notification = await prisma.notification.create({
     data: {
       user_id: targetUserId,
       content: message,
+      type: notificationType,
+      url: url,
       read: false,
     },
   });

@@ -90,7 +90,9 @@ const createNotification = async (req, res) => {
   try {
     const notification = await notificationService.createNotification(
       parseInt(targetUserId),
-      message
+      message,
+      notificationType,
+      url
     );
     const io = req.app.get('io');
     io.emit('notification', {

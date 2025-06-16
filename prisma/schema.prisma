@@ -122,6 +122,8 @@ model notification {
   user       user?    @relation(fields: [user_id], references: [id])
   content    String
   user_id    Int?
+  url        String?
+  type       String?
   read       Boolean
 }
 
