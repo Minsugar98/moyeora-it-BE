@@ -356,6 +356,15 @@ const passwordChange = async (userId, newPassword, confirmPassword) => {
   });
   return;
 };
+
+const profileImageDelete = async (userId) => {
+  await prisma.user.update({
+    where: { id: userId },
+    data: { profile_image: null },
+  });
+  return;
+};
+
 export default {
   createUser,
   deleteUser,
@@ -370,4 +379,5 @@ export default {
   checkEmail,
   resetPassword,
   passwordChange,
+  profileImageDelete,
 };

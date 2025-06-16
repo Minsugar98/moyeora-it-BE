@@ -236,6 +236,18 @@ const passwordChange = async (req, res) => {
   }
 };
 
+const profileImageDelete = async (req, res) => {
+  const { id: userId } = req.user;
+  try {
+    await userService.profileImageDelete(userId);
+    res.status(200).json({ status: { success: true } });
+  } catch (error) {
+    res.status(500).json({
+      status: { success: false, code: 500, message: error.message },
+    });
+  }
+};
+
 export default {
   signup,
   deleteUser,
@@ -251,4 +263,5 @@ export default {
   checkEmail,
   resetPassword,
   passwordChange,
+  profileImageDelete,
 };

@@ -98,6 +98,7 @@ const createNotification = async (req, res) => {
       message,
       notificationType,
       url,
+      notificationId: notification.id,
     });
     res.status(200).json({
       status: { success: true, code: 200, message: notification },
