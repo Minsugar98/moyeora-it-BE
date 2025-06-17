@@ -84,7 +84,7 @@ const deleteFollower = async (req, res) => {
       parseInt(userId),
       parseInt(targetUserId)
     );
-    res.status(204).json({ status: { success: true } });
+    res.status(200).json({ status: { success: true } });
   } catch (error) {
     res.status(500).json({
       status: { success: false, code: 500, message: error.message },
