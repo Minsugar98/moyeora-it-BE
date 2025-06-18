@@ -83,7 +83,7 @@ const getUserInfo = async (userId) => {
         10
       : 0;
 
-  const { profile_image, follower, following, ...rest } = user;
+  const { profile_image, follower, following, password, ...rest } = user;
   return {
     items: {
       ...rest,
@@ -235,7 +235,7 @@ const getByUserId = async (userId) => {
       ? Math.round((ratings.reduce((a, b) => a + b, 0) / ratings.length) * 10) /
         10
       : 0;
-  const { profile_image, follower, following, ...rest } = user;
+  const { profile_image, follower, following, password, ...rest } = user;
   return {
     ...rest,
     profileImage: profile_image,
