@@ -50,7 +50,7 @@ const io = new Server(server, {
       "https://www.my.sjcpop.com",
       "http://127.0.0.1:3000",
       "https://127.0.0.1:3000",
-      "http://local.sjcpop.com",
+      "http://local.sjcpop.com:3000",
     ],
     credentials: true,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
