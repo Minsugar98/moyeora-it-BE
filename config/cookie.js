@@ -1,6 +1,6 @@
 const accessTokenOption = {
   httpOnly: true,
-  secure: true,
+  secure: false,
   sameSite: "None",
   maxAge: 1000 * 60 * 60 * 3,
   path: "/",
@@ -9,7 +9,7 @@ const accessTokenOption = {
 
 const refreshTokenOption = {
   httpOnly: true,
-  secure: true,
+  secure: false,
   sameSite: "None",
   maxAge: 1000 * 60 * 60 * 24 * 7,
   path: "/",
@@ -18,7 +18,7 @@ const refreshTokenOption = {
 
 const clearAccessTokenOption = {
   httpOnly: true,
-  secure: true,
+  secure: false,
   sameSite: "None",
   maxAge: 0,
   path: "/",
@@ -27,7 +27,7 @@ const clearAccessTokenOption = {
 
 const clearRefreshTokenOption = {
   httpOnly: true,
-  secure: true,
+  secure: false,
   sameSite: "None",
   maxAge: 0,
   path: "/",

@@ -19,13 +19,13 @@ const handleSpringAuth = async (req, res) => {
     // 쿠키에 토큰 저장
     res.cookie("accessToken", result.accessToken, {
       httpOnly: true,
-      secure: true,
+      secure: false,
       sameSite: "None",
     });
 
     res.cookie("refreshToken", result.refreshToken, {
       httpOnly: true,
-      secure: true,
+      secure: false,
       sameSite: "None",
     });
 
