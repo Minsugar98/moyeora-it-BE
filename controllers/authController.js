@@ -1,3 +1,4 @@
+import { accessTokenOption, refreshTokenOption } from "../config/cookie.js";
 import { client } from "../config/redis.js";
 import authService from "../services/authService.js";
 
@@ -17,17 +18,9 @@ const handleSpringAuth = async (req, res) => {
     await client.set(String(userId), JSON.stringify(result));
 
     // 쿠키에 토큰 저장
-    res.cookie("accessToken", result.accessToken, {
-      httpOnly: true,
-      secure: true,
-      sameSite: "None",
-    });
+    res.cookie("accessToken", result.accessToken, accessTokenOption);
 
-    res.cookie("refreshToken", result.refreshToken, {
-      httpOnly: true,
-      secure: true,
-      sameSite: "None",
-    });
+    res.cookie("refreshToken", result.refreshToken, refreshTokenOption);
 
     return res.status(200).json({ status: { success: true } });
   } catch (error) {
