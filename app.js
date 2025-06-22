@@ -22,7 +22,7 @@ const allowedDomains = [
   "https://www.my.sjcpop.com",
   "http://127.0.0.1:3000",
   "https://127.0.0.1:3000",
-  "http://local.sjcpop.com:3000",
+  "https://local.sjcpop.com:3000",
 ];
 
 app.use(
