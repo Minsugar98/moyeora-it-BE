@@ -244,6 +244,60 @@ const getFollowingCount = async (userId) => {
   return followingCount;
 };
 
+const getSpringFollowers = async (userId) => {
+  const followers = await prisma.follow.findMany({
+    where: { following_id: userId },
+    include: {
+      follower: {
+        select: {
+          id: true,
+          nickname: true,
+          profile_image: true,
+          email: true,
+        },
+      },
+    },
+  });
+
+  // follower 객체만 추출하여 반환
+  const followerInfo = followers.map((follow) => {
+    const { profile_image, ...rest } = follow.follower;
+    return {
+      ...rest,
+      profileImage: profile_image,
+    };
+  });
+
+  return followerInfo;
+};
+
+const getSpringFollowing = async (userId) => {
+  const following = await prisma.follow.findMany({
+    where: { follower_id: userId },
+    include: {
+      following: {
+        select: {
+          id: true,
+          nickname: true,
+          profile_image: true,
+          email: true,
+        },
+      },
+    },
+  });
+
+  // following 객체만 추출하여 반환
+  const followingInfo = following.map((follow) => {
+    const { profile_image, ...rest } = follow.following;
+    return {
+      ...rest,
+      profileImage: profile_image,
+    };
+  });
+
+  return followingInfo;
+};
+
 export default {
   getFollowers,
   getFollowing,
@@ -252,4 +306,6 @@ export default {
   deleteFollower,
   getFollowersCount,
   getFollowingCount,
+  getSpringFollowers,
+  getSpringFollowing,
 };
