@@ -818,4 +818,7 @@ router.get('/:userId/followers/count', followController.getFollowersCount);
  */
 router.get('/:userId/following/count', followController.getFollowingCount);
 
+router.get('/:userId/spring-followers', followController.getSpringFollowers);
+
+router.get('/:userId/spring-following', followController.getSpringFollowing);
 export default router;

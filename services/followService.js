@@ -50,6 +50,16 @@ const getFollowingCount = async (userId) => {
   return followingCount;
 };
 
+const getSpringFollowers = async (userId) => {
+  const followers = await followRepository.getSpringFollowers(userId);
+  return followers;
+};
+
+const getSpringFollowing = async (userId) => {
+  const following = await followRepository.getSpringFollowing(userId);
+  return following;
+};
+
 export default {
   getFollowers,
   getFollowing,
@@ -58,4 +68,6 @@ export default {
   deleteFollower,
   getFollowersCount,
   getFollowingCount,
+  getSpringFollowers,
+  getSpringFollowing,
 };

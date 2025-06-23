@@ -27,9 +27,7 @@ const deleteUser = async (req, res) => {
   const { id: userId } = req.user;
   try {
     await userService.deleteUser(parseInt(userId));
-    res
-      .status(204)
-      .json({ status: { success: true }, message: '회원탈퇴 성공' });
+    res.status(200).json({ status: { success: true } });
   } catch (error) {
     res.status(500).json({
       status: { success: false, code: 500, message: error.message },
